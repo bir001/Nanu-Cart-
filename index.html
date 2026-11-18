@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#286ff0">
+  <meta name="description" content="Nanu Cart — trusted products and service for jewellery businesses.">
+  <title>Nanu Cart — Shop with confidence</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/nanucart-app-icon.png">
+  <link rel="apple-touch-icon" href="./assets/nanucart-app-icon.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#/home" aria-label="Nanu Cart home"><img src="./assets/nanucart-logo.png" alt="Nanu Cart"></a>
+      <div class="top-actions">
+        <button class="icon-btn" data-route="/search" aria-label="Search"><span class="icon">⌕</span></button>
+        <button class="icon-btn" data-route="/wishlist" aria-label="Wishlist"><span class="icon">♡</span></button>
+        <button class="icon-btn cart-head" data-route="/cart" aria-label="Cart"><span class="icon">🛒</span><b id="cart-count">0</b></button>
+      </div>
+    </header>
+
+    <main id="app" aria-live="polite">
+      <div class="loading"><span class="spinner"></span> Loading Nanu Cart…</div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a href="#/home" data-nav="home"><span>⌂</span><small>Home</small></a>
+      <a href="#/categories" data-nav="categories"><span>▦</span><small>Category</small></a>
+      <a href="#/cart" data-nav="cart"><span>🛒</span><small>Cart</small><i id="nav-cart-count">0</i></a>
+      <a href="#/account" data-nav="account"><span>♙</span><small>Account</small></a>
+    </nav>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="./app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator && location.protocol !== "file:") {
+      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+    }
+  </script>
+</body>
+</html>
